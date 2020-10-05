@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hss_app/screens/home.dart';
+import 'screens/home.dart';
+import 'screens/login.dart';
 
 void main() {
   runApp(App());
@@ -11,7 +12,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
-          child: Home(),
+          child: LogInScreen(),
         ),
       ),
     );
