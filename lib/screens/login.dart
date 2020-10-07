@@ -17,14 +17,39 @@ class _LogInScreenState extends State<LogInScreen> {
           ),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            //! Initial template code.
-            FlatButton(
-                onPressed: () {
-                  //Navigator.pop(context);
-                },
-                child: Icon(Icons.arrow_back_ios)),
+            //! TextField design needs to be complete!
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    print('Ouch!');
+                    //Navigator.pop(context);
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(left: 40.0),
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.blue,
+                      size: 30,
+                    ),
+                    padding: EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                      color: Color(0xFFDFE6EE),
+                      borderRadius: BorderRadius.circular(50),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey[400],
+                          blurRadius: 5.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -91,7 +116,7 @@ class _LogInScreenState extends State<LogInScreen> {
 
             GestureDetector(
               onTap: () {
-                print('Hello!');
+                print('Ouch!');
               },
               child: Container(
                 child: Center(
@@ -114,15 +139,16 @@ class _LogInScreenState extends State<LogInScreen> {
                   bottom: 10.0,
                 ),
                 decoration: BoxDecoration(
-                    color: Color(0xFFDFE6EE),
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(15.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey[500],
-                        blurRadius: 10.0,
-                      ),
-                    ]),
+                  color: Color(0xFFDFE6EE),
+                  //shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(15.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey[400],
+                      blurRadius: 10.0,
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
