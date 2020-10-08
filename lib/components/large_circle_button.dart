@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 import 'circle_button.dart';
 
 class LargeCircleButton extends StatelessWidget {
-  LargeCircleButton({this.title, this.img});
+  LargeCircleButton({
+    this.img,
+    this.title,
+    @required this.onTap,
+    @required this.emergencyTextPadding,
+  });
 
-  final String title;
   final Image img;
+  final String title;
+  final Function onTap;
+  final bool emergencyTextPadding; // i need to find a solution for this!
 
   @override
   Widget build(BuildContext context) {
@@ -19,20 +26,20 @@ class LargeCircleButton extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CircleButton(
-                onTap: () {
-                  print('Health sensor pressed.');
-                },
+                onTap: onTap,
                 img: img,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 60.0, top: 10.0),
+                padding: emergencyTextPadding
+                    ? const EdgeInsets.only(left: 45.0, top: 10.0)
+                    : const EdgeInsets.only(left: 60.0, top: 10.0),
                 child: Text(
                   title,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16.0,
                     fontWeight: FontWeight.normal,
-                    color: Colors.grey[700],
+                    color: emergencyTextPadding ? Colors.red : Colors.grey[700],
                   ),
                 ),
               ),

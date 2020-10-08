@@ -4,12 +4,14 @@ class CustomButtonTwo extends StatelessWidget {
   CustomButtonTwo({
     @required this.title,
     @required this.subtitle,
-    @required this.icon,
+    this.icon,
+    this.img,
   });
 
   final String title;
   final String subtitle;
   final Icon icon;
+  final Image img;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +46,7 @@ class CustomButtonTwo extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                icon,
+                icon ?? img,
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

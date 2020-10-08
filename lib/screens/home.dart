@@ -49,20 +49,20 @@ class Home extends StatelessWidget {
                       onTap: () {
                         print('Open Menu!');
                       },
-                      icon: Icon(
-                        Icons.menu,
-                        color: Colors.lightBlue,
-                        size: 30,
+                      img: Image.asset(
+                        'images/burger.png',
+                        height: 35.0,
+                        width: 35.0,
                       ),
                     )
                   ],
                 ),
               ),
               CustomButtonTwo(
-                icon: Icon(
-                  Icons.restore,
-                  color: Colors.blue,
-                  size: 50.0,
+                img: Image.asset(
+                  'images/reminder.png',
+                  height: 55.0,
+                  width: 55.0,
                 ),
                 title: "Reminders",
                 subtitle: 'Have you taken your pills?',
@@ -79,6 +79,10 @@ class Home extends StatelessWidget {
                       width: 50.0,
                     ),
                     title: 'Video',
+                    emergencyTextPadding: false,
+                    onTap: () {
+                      print('Video pressed.');
+                    },
                   ),
                   LargeCircleButton(
                     img: Image.asset(
@@ -87,6 +91,10 @@ class Home extends StatelessWidget {
                       width: 50.0,
                     ),
                     title: 'Booking',
+                    emergencyTextPadding: false,
+                    onTap: () {
+                      print('Booking pressed.');
+                    },
                   ),
                 ],
               ),
@@ -99,6 +107,10 @@ class Home extends StatelessWidget {
                       width: 50.0,
                     ),
                     title: 'Emergency \n SOS',
+                    emergencyTextPadding: true,
+                    onTap: () {
+                      print('Emergency SOS pressed.');
+                    },
                   ),
                   LargeCircleButton(
                     img: Image.asset(
@@ -107,6 +119,10 @@ class Home extends StatelessWidget {
                       width: 50.0,
                     ),
                     title: 'Health \n sensor',
+                    emergencyTextPadding: false,
+                    onTap: () {
+                      print('Health sensor pressed.');
+                    },
                   ),
                 ],
               )
