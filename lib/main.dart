@@ -14,8 +14,8 @@ class App extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
-          //child: LogInScreen(),
-          child: LogInScreenDoctor(),
+          child: LogInScreen(),
+          // child: LogInScreenDoctor(),
           // child: Home(),
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hss_app/components/back_circle_button.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hss_app/components/circle_button.dart';
 import 'package:hss_app/components/custom_textinput.dart';
 import 'package:hss_app/components/custom_button.dart';
 
@@ -25,11 +26,16 @@ class _LogInScreenDoctorState extends State<LogInScreenDoctor> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                BackCircleButton(
+                CircleButton(
                   onTap: () {
                     print('Ouch!');
                     //Navigator.pop(context);
                   },
+                  icon: Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.blue,
+                    size: 30,
+                  ),
                 ),
               ],
             ),

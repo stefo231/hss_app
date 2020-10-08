@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class BackCircleButton extends StatelessWidget {
-  BackCircleButton({@required this.onTap});
+class CircleButton extends StatelessWidget {
+  CircleButton({@required this.onTap, this.img, this.icon});
 
   final Function onTap;
+  final Image img;
+  final Icon icon;
 
   @override
   Widget build(BuildContext context) {
@@ -11,17 +14,13 @@ class BackCircleButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: EdgeInsets.only(left: 40.0),
-        child: Icon(
-          Icons.arrow_back_ios,
-          color: Colors.blue,
-          size: 30,
-        ),
-        padding: EdgeInsets.all(10.0),
+        child: img ?? icon,
+        padding: EdgeInsets.all(20.0),
         decoration: BoxDecoration(
-          color: Colors.grey[100],
-          // color: Colors.white,
+          // color: Colors.grey[100],
+          color: Colors.white,
           // color: Color(0xFFDFE6EE),
-          borderRadius: BorderRadius.circular(50),
+          borderRadius: BorderRadius.circular(100),
           boxShadow: [
             BoxShadow(
               color: Colors.grey[400],
