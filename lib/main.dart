@@ -15,9 +15,9 @@ class App extends StatelessWidget {
       home: Scaffold(
         body: SafeArea(
 // za polesna navigacija - comment / uncomment
-          // child: Home(),
+          child: Home(),
           // child: LogInScreen(),
-          child: LogInScreenDoctor(),
+          // child: LogInScreenDoctor(),
         ),
       ),
     );
