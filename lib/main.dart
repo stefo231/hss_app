@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hss_app/screens/home_screen.dart';
 import 'package:hss_app/screens/login.dart';
-import 'screens/home.dart';
+
 import 'screens/login.dart';
 import 'screens/login_doctor.dart';
 
@@ -15,7 +16,8 @@ class App extends StatelessWidget {
       home: Scaffold(
         body: SafeArea(
 // za polesna navigacija - comment / uncomment
-          child: Home(),
+
+          child: HomeScreen(),
           // child: LogInScreen(),
           // child: LogInScreenDoctor(),
         ),
