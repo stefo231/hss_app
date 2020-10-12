@@ -37,6 +37,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 FontAwesomeIcons.envelope,
                 color: Colors.lightBlue,
               ),
+              emergencyTextColor: false,
             ),
             CustomIconButton(
               onTap: () {},
@@ -45,6 +46,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 FontAwesomeIcons.facebookF,
                 color: Colors.blue,
               ),
+              emergencyTextColor: false,
             ),
             CustomIconButton(
               onTap: () {},
@@ -53,12 +55,14 @@ class _LogInScreenState extends State<LogInScreen> {
                 "images/google_icon.png",
                 width: 24.0,
               ),
+              emergencyTextColor: false,
               //icon: FaIcon(FontAwesomeIcons.google),
             ),
             CustomIconButton(
               onTap: () {},
               buttonTitle: "Apple",
               icon: FaIcon(FontAwesomeIcons.apple),
+              emergencyTextColor: false,
             ),
           ],
         ),

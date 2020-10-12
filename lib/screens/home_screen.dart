@@ -147,48 +147,51 @@ class _HomeScreenState extends State<HomeScreen> {
     return showDialog(
         context: context,
         builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Here goes the SOS Image'),
-            content: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Emergency Call for',
-                  style: TextStyle(
-                    color: Colors.red,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                CustomIconButton(
-                  onTap: () {
-                    print('select human');
-                  },
-                  buttonTitle: 'Select human',
-                  emergencyTextColor: true,
-                  logo: Image.asset('images/plus_red.png'),
-                ),
-                SliderButton(
-                  // backgroundColor: Colors.blue,
-                  baseColor: Colors.grey,
-                  shimmer: false,
-                  height: 50,
-                  buttonSize: 50,
-                  action: () {
-                    ///Do something here
-                    Navigator.of(context).pop();
-                  },
-                  label: Text(
-                    "Request Ambulance",
+          return Container(
+            child: AlertDialog(
+              title: Text('Here goes the SOS Image'),
+              content: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Emergency Call for',
                     style: TextStyle(
-                        color: Color(0xff4a4a4a),
-                        fontWeight: FontWeight.w500,
-                        fontSize: 17),
+                      color: Colors.red,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  icon: Image.asset('images/right_arrow_grey.png'),
-                ),
-              ],
+                  CustomIconButton(
+                    onTap: () {
+                      print('select human');
+                    },
+                    buttonTitle: 'Select human',
+                    emergencyTextColor: true,
+                    logo: Image.asset('images/plus_red.png'),
+                  ),
+                  SliderButton(
+                    // backgroundColor: Colors.blue,
+                    baseColor: Colors.grey,
+                    shimmer: false,
+                    height: 50,
+                    buttonSize: 50,
+                    action: () {
+                      ///Do something here
+                      Navigator.of(context).pop();
+                    },
+                    label: Text(
+                      "Request Ambulance",
+                      style: TextStyle(
+                          color: Color(0xff4a4a4a),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 17),
+                    ),
+
+                    icon: Image.asset('images/right_arrow_grey.png'),
+                  ),
+                ],
+              ),
+              actions: [],
             ),
-            actions: [],
           );
         });
   }
