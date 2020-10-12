@@ -7,12 +7,14 @@ class CustomIconButton extends StatelessWidget {
     @required this.buttonTitle,
     this.icon,
     this.logo,
+    @required this.emergencyTextColor,
   });
 
   final Function onTap;
   final String buttonTitle;
   final FaIcon icon;
   final Image logo;
+  final bool emergencyTextColor; // i need to find a solution for this!
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +23,11 @@ class CustomIconButton extends StatelessWidget {
       child: Center(
         child: Container(
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                width: 100.0,
-              ),
+              // SizedBox(
+              //   width: 100.0,
+              // ),
               icon ?? logo,
               SizedBox(
                 width: 15.0,
@@ -33,7 +35,7 @@ class CustomIconButton extends StatelessWidget {
               Text(
                 buttonTitle, //?BUTTON TEXT
                 style: TextStyle(
-                  color: Colors.grey[600],
+                  color: emergencyTextColor ? Colors.red : Colors.grey[600],
                   fontSize: 25.0,
                   fontWeight: FontWeight.bold,
                 ),

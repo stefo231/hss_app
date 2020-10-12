@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hss_app/components/circle_button.dart';
 import 'package:hss_app/components/large_circle_button.dart';
 import 'package:hss_app/components/custom_button_two.dart';
+import 'package:hss_app/components/custom_icon_button.dart';
+//slider
+import 'package:slider_button/slider_button.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -145,57 +148,47 @@ class _HomeScreenState extends State<HomeScreen> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Container(
-              padding: EdgeInsets.all(30.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(360),
-                color: Colors.red,
-              ),
-              child: Image.asset(
-                'images/SOS_1.png',
-                color: Colors.white,
-                height: 75.0,
-                width: 50.0,
-              ),
-            ),
-            content: SingleChildScrollView(
-              child: ListBody(
-                children: <Widget>[
-                  Text(
-                    'Emergency Call for',
-                    style: TextStyle(
-                        color: Colors.red, fontWeight: FontWeight.bold),
+            title: Text('Here goes the SOS Image'),
+            content: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Emergency Call for',
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontWeight: FontWeight.bold,
                   ),
-                  DropdownButton(
-                    items: <String>['One', 'Two', 'Three', 'Four']
-                        .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem(
-                        value: value,
-                        child: Text(
-                          value,
-                          style: TextStyle(color: Colors.red),
-                        ),
-                      );
-                    }).toList(),
-                    onChanged: (String newValue) {
-                      setState(() {
-                        dropdownValue = newValue;
-                      });
-                    },
-                    // icon: Image.asset('images/plus_red.png'),
-                    // iconSize: 24,
-                    elevation: 16,
-                    // style:
-                    //     TextStyle(color: Colors.deepPurple),
-                    // underline: Container(
-                    //   height: 2,
-                    //   color: Colors.deepPurpleAccent,
-                    // ),
-                  )
-                ],
-              ),
+                ),
+                CustomIconButton(
+                  onTap: () {
+                    print('select human');
+                  },
+                  buttonTitle: 'Select human',
+                  emergencyTextColor: true,
+                  logo: Image.asset('images/plus_red.png'),
+                ),
+                SliderButton(
+                  // backgroundColor: Colors.blue,
+                  baseColor: Colors.grey,
+                  shimmer: false,
+                  height: 50,
+                  buttonSize: 50,
+                  action: () {
+                    ///Do something here
+                    Navigator.of(context).pop();
+                  },
+                  label: Text(
+                    "Request Ambulance",
+                    style: TextStyle(
+                        color: Color(0xff4a4a4a),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 17),
+                  ),
+                  icon: Image.asset('images/right_arrow_grey.png'),
+                ),
+              ],
             ),
-            actions: [FlatButton(onPressed: () {}, child: Text('Approve'))],
+            actions: [],
           );
         });
   }
