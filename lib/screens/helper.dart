@@ -41,25 +41,28 @@ class _HelperState extends State<Helper> {
                     Navigator.of(context).pop();
                   },
                   //!u need to fix this selector Stefan
-                  selector: DropdownButton(
-                    value: dropdownValue,
-                    elevation: 16,
-                    onChanged: (String newValue) {
-                      setState(() {
-                        dropdownValue = newValue;
-                      });
-                    },
-                    items: <String>[
-                      'John Doe',
-                      'Catherine Doe',
-                      'Emilia Doe',
-                      'Ben Doe'
-                    ].map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
+                  selector: Container(
+                    color: Colors.blue,
+                    child: DropdownButton(
+                      value: dropdownValue,
+                      onChanged: (String newValue) {
+                        setState(() {
+                          dropdownValue = newValue;
+                        });
+                      },
+                      style: TextStyle(color: Colors.red),
+                      items: <String>[
+                        'John Doe',
+                        'Catherine Doe',
+                        'Emilia Doe',
+                        'Ben Doe'
+                      ].map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                    ),
                   ),
 
                   sliderBtn: SliderButton(

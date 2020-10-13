@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hss_app/components/custom_button.dart';
 
 class CustomDialog extends StatelessWidget {
   CustomDialog({
@@ -9,6 +10,7 @@ class CustomDialog extends StatelessWidget {
     @required this.negativeBtnText,
     this.positiveBtnPressed,
     @required this.onTap,
+    this.onBtnTap,
     this.sliderBtn,
     this.selector,
   });
@@ -16,6 +18,7 @@ class CustomDialog extends StatelessWidget {
   final String title, content, positiveBtnText, negativeBtnText;
   final GestureTapCallback positiveBtnPressed;
   final Function onTap;
+  final Function onBtnTap;
   final Widget sliderBtn;
   final Widget selector;
   final Image image;
@@ -48,13 +51,18 @@ class CustomDialog extends StatelessWidget {
               image ??
                   Text(
                     title,
-                    style: Theme.of(context).textTheme.headline5,
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.lightBlue[400],
+                    ),
                   ),
               SizedBox(height: 16),
               Text(
                 content,
-                style:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red,
+                    fontSize: 36),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 16),
@@ -63,22 +71,29 @@ class CustomDialog extends StatelessWidget {
 
               SizedBox(height: 16),
               sliderBtn ??
-                  ButtonBar(
-                    buttonMinWidth: 100,
-                    alignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      FlatButton(
-                        child: Text(positiveBtnText),
-                        onPressed: () => Navigator.of(context).pop(),
-                      ),
-                    ],
+                  // only for second dialog
+                  CustomButton(
+                    title: positiveBtnText,
+                    onTap: () => {
+                      Navigator.of(context).pop(),
+                      Navigator.of(context).pop()
+                      //print('object')
+                    },
                   ),
+
+              // ButtonBar( //keep this
+              //   buttonMinWidth: 100,
+              //   alignment: MainAxisAlignment.center,
+              //   children: [
+
+              //   ],
+              // ),
               SizedBox(height: 16),
             ],
           ),
         ),
 
-        // Top circle view //! it should be written below to appear above
+        // Top circle view //? it should be written below to appear above
         GestureDetector(
           onTap: onTap,
           child: CircleAvatar(

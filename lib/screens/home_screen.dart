@@ -5,6 +5,8 @@ import 'package:hss_app/components/custom_button_two.dart';
 import 'package:hss_app/components/custom_icon_button.dart';
 //slider
 import 'package:slider_button/slider_button.dart';
+import 'package:hss_app/components/custom_dialog.dart';
+import 'package:slider_button/slider_button.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -12,7 +14,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String dropdownValue = 'One'; // for drowdown
+  List<String> options = ['John Doe', 'Catherine Doe', 'Emilia Doe', 'Ben Doe'];
+  String dropdownValue = 'John Doe'; // for drowdown
 
   @override
   Widget build(BuildContext context) {
@@ -117,10 +120,115 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     title: 'Emergency \n SOS',
                     emergencyTextPadding: true,
-                    onTap: () {
-                      // print('Emergency SOS pressed.');
-                      buildShowEmergencyDialog(context);
-                    },
+                    onTap: () => showGeneralDialog(
+                        barrierDismissible: false,
+                        context: context,
+                        barrierColor: Colors.black12, // space around dialog
+                        transitionDuration: Duration(milliseconds: 800),
+                        transitionBuilder: (context, a1, a2, child) {
+                          return ScaleTransition(
+                            scale: CurvedAnimation(
+                                parent: a1,
+                                curve: Curves.elasticOut,
+                                reverseCurve: Curves.easeOutCubic),
+                            child: CustomDialog(
+                              // title: 'Here goes title',
+
+                              image: Image.asset('images/sos_red_circle.png',
+                                  height: 150),
+                              content: "Emergency Call for",
+                              positiveBtnText: "Done",
+                              negativeBtnText: 'Cancel',
+                              //? the code below is to show second Dialog window
+                              onTap: () => showGeneralDialog(
+                                  barrierDismissible: false,
+                                  context: context,
+                                  barrierColor: Colors.black38,
+                                  transitionDuration:
+                                      Duration(milliseconds: 800),
+                                  transitionBuilder: (context, a1, a2, child) {
+                                    return ScaleTransition(
+                                      scale: CurvedAnimation(
+                                          parent: a1,
+                                          curve: Curves.elasticOut,
+                                          reverseCurve: Curves.easeOutCubic),
+                                      //? second Dialog window
+                                      child: CustomDialog(
+                                        title:
+                                            '    Are you sure \n you want to quit', // need to find solution
+                                        content: 'SOS',
+                                        positiveBtnText: "Yes",
+                                        negativeBtnText: 'Cancel',
+                                        selector: SizedBox(),
+
+                                        onTap: () => {
+                                          Navigator.of(context).pop(),
+                                          //print('object')
+                                        },
+                                      ),
+                                      //?-----------------------
+                                    );
+                                  },
+                                  pageBuilder: (BuildContext context,
+                                      Animation animation,
+                                      Animation secondaryAnimation) {
+                                    return null;
+                                  }),
+                              //? the code above is to show second Dialog window
+                              //Todo------------u need to style the DropdownButton -----------------
+                              selector: Container(
+                                child: DropdownButton(
+                                  value: dropdownValue,
+                                  onChanged: (String newValue) {
+                                    setState(() {
+                                      dropdownValue = newValue;
+                                    });
+                                  },
+                                  style: TextStyle(color: Colors.red),
+                                  selectedItemBuilder: (BuildContext context) {
+                                    return options.map((String value) {
+                                      return Text(
+                                        dropdownValue,
+                                        style: TextStyle(color: Colors.red),
+                                      );
+                                    }).toList();
+                                  },
+                                  items: options.map<DropdownMenuItem<String>>(
+                                      (String value) {
+                                    return DropdownMenuItem(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                ),
+                              ),
+                              //Todo---------------------------------------------------------------
+                              sliderBtn: SliderButton(
+                                baseColor: Colors.grey,
+                                shimmer: false,
+                                height: 50,
+                                buttonSize: 50,
+                                action: () {
+                                  ///Do something here
+                                  Navigator.of(context).pop();
+                                },
+                                label: Text(
+                                  "Request Ambulance",
+                                  style: TextStyle(
+                                      color: Color(0xff4a4a4a),
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 17),
+                                ),
+                                icon:
+                                    Image.asset('images/right_arrow_grey.png'),
+                              ),
+                            ),
+                          );
+                        },
+                        pageBuilder: (BuildContext context, Animation animation,
+                            Animation secondaryAnimation) {
+                          return null;
+                        }),
                   ),
                   LargeCircleButton(
                     img: Image.asset(
@@ -141,58 +249,5 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
-  }
-
-  Future buildShowEmergencyDialog(BuildContext context) {
-    return showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return Container(
-            child: AlertDialog(
-              title: Text('Here goes the SOS Image'),
-              content: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Emergency Call for',
-                    style: TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  CustomIconButton(
-                    onTap: () {
-                      print('select human');
-                    },
-                    buttonTitle: 'Select human',
-                    emergencyTextColor: true,
-                    logo: Image.asset('images/plus_red.png'),
-                  ),
-                  SliderButton(
-                    // backgroundColor: Colors.blue,
-                    baseColor: Colors.grey,
-                    shimmer: false,
-                    height: 50,
-                    buttonSize: 50,
-                    action: () {
-                      ///Do something here
-                      Navigator.of(context).pop();
-                    },
-                    label: Text(
-                      "Request Ambulance",
-                      style: TextStyle(
-                          color: Color(0xff4a4a4a),
-                          fontWeight: FontWeight.w500,
-                          fontSize: 17),
-                    ),
-
-                    icon: Image.asset('images/right_arrow_grey.png'),
-                  ),
-                ],
-              ),
-              actions: [],
-            ),
-          );
-        });
   }
 }

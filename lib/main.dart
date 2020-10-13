@@ -14,11 +14,14 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // initialRoute: '/',
+      // routes: {'/': (context) => HomeScreen()},
+
       home: Scaffold(
         body: SafeArea(
 // za polesna navigacija - comment / uncomment
-          child: Helper(),
-          // child: HomeScreen(),
+          // child: Helper(),
+          child: HomeScreen(),
           // child: LogInScreen(),
           // child: LogInScreenDoctor(),
         ),
