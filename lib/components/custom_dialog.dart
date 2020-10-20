@@ -96,12 +96,23 @@ class CustomDialog extends StatelessWidget {
         // Top circle view //? it should be written below to appear above
         GestureDetector(
           onTap: onTap,
-          child: CircleAvatar(
-            maxRadius: 40,
-            backgroundColor: Colors.grey[50],
-            child: Image.asset(
-              'images/cross_red.png',
-              height: 30,
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.red[300],
+                  blurRadius: 10.0,
+                ),
+              ],
+            ),
+            child: CircleAvatar(
+              maxRadius: 40,
+              backgroundColor: Colors.grey[50],
+              child: Image.asset(
+                'images/cross_red.png',
+                height: 30,
+              ),
             ),
           ),
         )

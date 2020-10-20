@@ -13,23 +13,12 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: LogInEmailScreen.id,
+      initialRoute: WelcomeScreen.id,
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         LogInEmailScreen.id: (context) => LogInEmailScreen(),
         HomeScreen.id: (context) => HomeScreen(),
       },
-
-//       home: Scaffold(
-//         body: SafeArea(
-// // za polesna navigacija - comment / uncomment
-//           child: WelcomeScreen(),
-//           // child: HomeScreen(),
-
-//           // child: LogInScreenDoctor(),
-//           // child: Helper(),
-//         ),
-//       ),
     );
   }
 }
