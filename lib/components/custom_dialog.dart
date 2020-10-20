@@ -40,6 +40,10 @@ class CustomDialog extends StatelessWidget {
         Container(
           margin: EdgeInsets.only(top: 40),
           decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('images/sos_screen_1.jpg'),
+              fit: BoxFit.cover,
+            ),
             color: Colors.white,
             borderRadius: BorderRadius.circular(12),
           ),
@@ -48,7 +52,17 @@ class CustomDialog extends StatelessWidget {
             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.min,
             children: [
-              image ??
+              Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.red[300],
+                            blurRadius: 15.0,
+                          ),
+                        ],
+                      ),
+                      child: image) ??
                   Text(
                     title,
                     style: TextStyle(
@@ -56,6 +70,7 @@ class CustomDialog extends StatelessWidget {
                       color: Colors.lightBlue[400],
                     ),
                   ),
+
               SizedBox(height: 16),
               Text(
                 content,
@@ -81,7 +96,7 @@ class CustomDialog extends StatelessWidget {
                     },
                   ),
 
-              // ButtonBar( //keep this
+              // ButtonBar( // !keep this
               //   buttonMinWidth: 100,
               //   alignment: MainAxisAlignment.center,
               //   children: [
