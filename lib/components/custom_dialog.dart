@@ -13,6 +13,7 @@ class CustomDialog extends StatelessWidget {
     this.onBtnTap,
     this.sliderBtn,
     this.selector,
+    this.background,
   });
 
   final String title, content, positiveBtnText, negativeBtnText;
@@ -22,6 +23,7 @@ class CustomDialog extends StatelessWidget {
   final Widget sliderBtn;
   final Widget selector;
   final Image image;
+  final AssetImage background;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,7 @@ class CustomDialog extends StatelessWidget {
           margin: EdgeInsets.only(top: 40),
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('images/sos_screen_1.jpg'),
+              image: background,
               fit: BoxFit.cover,
             ),
             color: Colors.white,
@@ -53,29 +55,33 @@ class CustomDialog extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.red[300],
-                            blurRadius: 15.0,
-                          ),
-                        ],
+                child: image != null
+                    ? Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.red[300],
+                              blurRadius: 15.0,
+                            ),
+                          ],
+                        ),
+                        child: image,
+                      )
+                    : Text(
+                        title,
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.lightBlue[400],
+                        ),
                       ),
-                      child: image) ??
-                  Text(
-                    title,
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.lightBlue[400],
-                    ),
-                  ),
+              ),
 
               SizedBox(height: 16),
               Text(
                 content,
                 style: TextStyle(
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w900,
                     color: Colors.red,
                     fontSize: 36),
                 textAlign: TextAlign.center,

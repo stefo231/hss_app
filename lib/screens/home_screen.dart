@@ -141,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               reverseCurve: Curves.easeOutCubic),
                           child: CustomDialog(
                             // title: 'Here goes title',
-
+                            background: AssetImage('images/sos_screen_1.jpg'),
                             image: Image.asset('images/sos_red_circle.png',
                                 height: 150),
                             content: "Emergency Call for",
@@ -161,6 +161,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                         reverseCurve: Curves.easeOutCubic),
                                     //? second Dialog window
                                     child: CustomDialog(
+                                      background:
+                                          AssetImage('images/unsucessful.jpg'),
                                       title:
                                           '    Are you sure \n you want to quit', // need to find solution
                                       content: 'SOS',
