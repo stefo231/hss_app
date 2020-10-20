@@ -2,19 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:hss_app/components/custom_icon_button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class LogInScreen extends StatefulWidget {
-  @override
-  _LogInScreenState createState() => _LogInScreenState();
-}
-
-class _LogInScreenState extends State<LogInScreen> {
+class LoginPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return Container(
+      color: Colors.grey[600],
+      child: Container(
+        padding: EdgeInsets.all(20.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20.0),
+            topRight: Radius.circular(20.0),
+          ),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            SizedBox(height: 26.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -30,6 +35,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 )
               ],
             ),
+            SizedBox(height: 36.0),
             CustomIconButton(
               onTap: () {},
               buttonTitle: "Email",
@@ -39,6 +45,7 @@ class _LogInScreenState extends State<LogInScreen> {
               ),
               emergencyTextColor: false,
             ),
+            SizedBox(height: 36.0),
             CustomIconButton(
               onTap: () {},
               buttonTitle: "Facebook",
@@ -48,6 +55,7 @@ class _LogInScreenState extends State<LogInScreen> {
               ),
               emergencyTextColor: false,
             ),
+            SizedBox(height: 36.0),
             CustomIconButton(
               onTap: () {},
               buttonTitle: "Google",
@@ -58,12 +66,14 @@ class _LogInScreenState extends State<LogInScreen> {
               emergencyTextColor: false,
               //icon: FaIcon(FontAwesomeIcons.google),
             ),
+            SizedBox(height: 36.0),
             CustomIconButton(
               onTap: () {},
               buttonTitle: "Apple",
               icon: FaIcon(FontAwesomeIcons.apple),
               emergencyTextColor: false,
             ),
+            SizedBox(height: 36.0),
           ],
         ),
       ),

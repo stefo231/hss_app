@@ -51,7 +51,7 @@ class CustomIconButton extends StatelessWidget {
             bottom: 10.0,
           ),
           decoration: BoxDecoration(
-            color: Colors.grey[50],
+            color: Colors.white,
             borderRadius: BorderRadius.circular(15.0),
             boxShadow: [
               BoxShadow(

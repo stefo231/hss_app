@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hss_app/screens/helper.dart';
 import 'package:hss_app/screens/home_screen.dart';
-import 'package:hss_app/screens/login.dart';
 
-import 'screens/login.dart';
-import 'screens/login_doctor.dart';
+import 'package:hss_app/screens/welcome_screen.dart';
+
+import 'screens/login_doctor_screen.dart';
 
 void main() {
   runApp(App());
@@ -20,10 +20,11 @@ class App extends StatelessWidget {
       home: Scaffold(
         body: SafeArea(
 // za polesna navigacija - comment / uncomment
-          // child: Helper(),
-          child: HomeScreen(),
-          // child: LogInScreen(),
+          child: WelcomeScreen(),
+          // child: HomeScreen(),
+
           // child: LogInScreenDoctor(),
+          // child: Helper(),
         ),
       ),
     );
