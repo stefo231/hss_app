@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CircleButton extends StatelessWidget {
   CircleButton({@required this.onTap, this.img, this.icon});
@@ -13,9 +12,9 @@ class CircleButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.only(left: 40.0),
+        // margin: EdgeInsets.only(left: 40.0),
         child: img ?? icon,
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(15.0),
         decoration: BoxDecoration(
           // color: Colors.grey[100],
           color: Colors.white,

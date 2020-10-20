@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hss_app/components/custom_icon_button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'login_email_screen.dart';
 
 class LoginPanel extends StatelessWidget {
   @override
@@ -37,7 +38,9 @@ class LoginPanel extends StatelessWidget {
             ),
             SizedBox(height: 36.0),
             CustomIconButton(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, LogInEmailScreen.id);
+              },
               buttonTitle: "Email",
               icon: FaIcon(
                 FontAwesomeIcons.envelope,

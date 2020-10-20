@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hss_app/screens/login_panel.dart';
-import 'package:hss_app/screens/login_screen.dart';
+// import 'package:hss_app/screens/login_screen.dart';
 
 import '../components/custom_icon_button.dart';
 
 class WelcomeScreen extends StatefulWidget {
+  static String id = "welcome_screen";
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }

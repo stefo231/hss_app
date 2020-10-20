@@ -16,35 +16,38 @@ class LargeCircleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: Container(
-        //color: Colors.green,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CircleButton(
-                onTap: onTap,
-                img: img,
-              ),
-              Padding(
-                padding: emergencyTextPadding
-                    ? const EdgeInsets.only(left: 45.0, top: 10.0)
-                    : const EdgeInsets.only(left: 60.0, top: 10.0),
-                child: Text(
-                  title,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.normal,
-                    color: emergencyTextPadding ? Colors.red : Colors.grey[700],
-                  ),
+    return Container(
+      // color: Colors.green,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CircleButton(
+              onTap: onTap,
+              img: img,
+            ),
+            Padding(
+              padding: emergencyTextPadding
+                  ? const EdgeInsets.only(
+                      // left: 15.0,
+                      top: 10.0,
+                    )
+                  : const EdgeInsets.only(
+                      left: 15.0,
+                      top: 10.0,
+                    ),
+              child: Text(
+                title,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.normal,
+                  color: emergencyTextPadding ? Colors.red : Colors.grey[700],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
