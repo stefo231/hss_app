@@ -1,97 +1,64 @@
 import 'package:flutter/material.dart';
-//!----------
-import 'package:hss_app/components/custom_dialog.dart';
-import 'package:slider_button/slider_button.dart';
+import 'package:flutter/rendering.dart';
+import 'dart:ui' as ui;
 
-//!-----------^
+import 'package:hss_app/components/circle_button.dart';
+
 class Helper extends StatefulWidget {
+  static String id = "helper";
   @override
   _HelperState createState() => _HelperState();
 }
 
 class _HelperState extends State<Helper> {
-  String dropdownValue;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-      child: FlatButton(
-        child: Text('Dialog'),
-        //!you need below ------------------------- v
-        onPressed: () => showGeneralDialog(
-            barrierDismissible: false,
-            context: context,
-            barrierColor: Colors.black12, // space around dialog
-            transitionDuration: Duration(milliseconds: 800),
-            transitionBuilder: (context, a1, a2, child) {
-              return ScaleTransition(
-                scale: CurvedAnimation(
-                    parent: a1,
-                    curve: Curves.elasticOut,
-                    reverseCurve: Curves.easeOutCubic),
-                child: CustomDialog(
-                  // title: 'Here goes title',
-                  image: Image.asset('images/sos_red_circle.png', height: 150),
-                  content: "Emergency Call for",
-                  positiveBtnText: "Done",
-                  negativeBtnText: 'Cancel',
-                  onTap: () {
-                    // Do something here
-                    Navigator.of(context).pop();
-                  },
-                  //!u need to fix this selector Stefan
-                  selector: Container(
-                    color: Colors.blue,
-                    child: DropdownButton(
-                      value: dropdownValue,
-                      onChanged: (String newValue) {
-                        setState(() {
-                          dropdownValue = newValue;
-                        });
-                      },
-                      style: TextStyle(color: Colors.red),
-                      items: <String>[
-                        'John Doe',
-                        'Catherine Doe',
-                        'Emilia Doe',
-                        'Ben Doe'
-                      ].map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-
-                  sliderBtn: SliderButton(
-                    baseColor: Colors.grey,
-                    shimmer: false,
-                    height: 50,
-                    buttonSize: 50,
-                    action: () {
-                      ///Do something here
-                      Navigator.of(context).pop();
-                    },
-                    label: Text(
-                      "Request Ambulance",
-                      style: TextStyle(
-                          color: Color(0xff4a4a4a),
-                          fontWeight: FontWeight.w500,
-                          fontSize: 17),
-                    ),
-                    icon: Image.asset('images/right_arrow_grey.png'),
-                  ),
-                ),
-              );
-            },
-            pageBuilder: (BuildContext context, Animation animation,
-                Animation secondaryAnimation) {
-              return null;
-            }),
-        //!you need above -------------- ^
+      backgroundColor: Colors.grey[300],
+      body: Center(
+        child: Container(
+          width: 200,
+          height: 200,
+          child: Icon(
+            Icons.android_sharp,
+            size: 60,
+            color: Colors.grey[800],
+          ),
+          decoration: BoxDecoration(
+            // color: Colors.grey[600],
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey[600],
+                  offset: Offset(-4.0, -4.0),
+                  blurRadius: 15.0,
+                  spreadRadius: 1.0),
+              BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(-4.0, -4.0),
+                  blurRadius: 15.0,
+                  spreadRadius: 1.0),
+            ],
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Colors.grey[200],
+                  Colors.grey[300],
+                  Colors.grey[400],
+                  Colors.grey[500],
+                ],
+                stops: [
+                  0.1,
+                  0.3,
+                  0.8,
+                  0.9,
+                ]),
+          ),
+        ),
       ),
-    ));
+    );
   }
 }
+
+//!____________________________________________________________

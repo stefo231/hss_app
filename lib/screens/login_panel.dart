@@ -8,76 +8,79 @@ class LoginPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.grey[600],
-      child: Container(
-        padding: EdgeInsets.all(20.0),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20.0),
-            topRight: Radius.circular(20.0),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          padding: EdgeInsets.all(20.0),
+          decoration: BoxDecoration(
+            color: Colors.grey[100],
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20.0),
+              topRight: Radius.circular(20.0),
+            ),
           ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            SizedBox(height: 26.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  'Login with',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey[700],
-                      fontSize: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SizedBox(height: 26.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    'Login with',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey[700],
+                        fontSize: 20),
+                  ),
+                  SizedBox(
+                    width: 10.0,
+                  )
+                ],
+              ),
+              SizedBox(height: 36.0),
+              CustomIconButton(
+                onTap: () {
+                  Navigator.pushNamed(context, LogInEmailScreen.id);
+                },
+                buttonTitle: "Email",
+                icon: FaIcon(
+                  FontAwesomeIcons.envelope,
+                  color: Colors.lightBlue,
                 ),
-                SizedBox(
-                  width: 10.0,
-                )
-              ],
-            ),
-            SizedBox(height: 36.0),
-            CustomIconButton(
-              onTap: () {
-                Navigator.pushNamed(context, LogInEmailScreen.id);
-              },
-              buttonTitle: "Email",
-              icon: FaIcon(
-                FontAwesomeIcons.envelope,
-                color: Colors.lightBlue,
+                emergencyTextColor: false,
               ),
-              emergencyTextColor: false,
-            ),
-            SizedBox(height: 36.0),
-            CustomIconButton(
-              onTap: () {},
-              buttonTitle: "Facebook",
-              icon: FaIcon(
-                FontAwesomeIcons.facebookF,
-                color: Colors.blue,
+              SizedBox(height: 36.0),
+              CustomIconButton(
+                onTap: () {},
+                buttonTitle: "Facebook",
+                icon: FaIcon(
+                  FontAwesomeIcons.facebookF,
+                  color: Colors.blue,
+                ),
+                emergencyTextColor: false,
               ),
-              emergencyTextColor: false,
-            ),
-            SizedBox(height: 36.0),
-            CustomIconButton(
-              onTap: () {},
-              buttonTitle: "Google",
-              logo: Image.asset(
-                "images/google_icon.png",
-                width: 24.0,
+              SizedBox(height: 36.0),
+              CustomIconButton(
+                onTap: () {},
+                buttonTitle: "Google",
+                logo: Image.asset(
+                  "images/google_icon.png",
+                  width: 24.0,
+                ),
+                emergencyTextColor: false,
+                //icon: FaIcon(FontAwesomeIcons.google),
               ),
-              emergencyTextColor: false,
-              //icon: FaIcon(FontAwesomeIcons.google),
-            ),
-            SizedBox(height: 36.0),
-            CustomIconButton(
-              onTap: () {},
-              buttonTitle: "Apple",
-              icon: FaIcon(FontAwesomeIcons.apple),
-              emergencyTextColor: false,
-            ),
-            SizedBox(height: 36.0),
-          ],
+              SizedBox(height: 36.0),
+              CustomIconButton(
+                onTap: () {},
+                buttonTitle: "Apple",
+                icon: FaIcon(FontAwesomeIcons.apple),
+                emergencyTextColor: false,
+              ),
+              SizedBox(height: 36.0),
+            ],
+          ),
         ),
       ),
     );

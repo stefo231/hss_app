@@ -33,17 +33,42 @@ class CustomButton extends StatelessWidget {
           bottom: 10.0,
         ),
         decoration: BoxDecoration(
-          color: Colors.grey[50],
+          // color: Colors.grey[50],
           // color: Colors.white,
           // color: Color(0xFFDFE6EE),
           //shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(15.0),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey[400],
-              blurRadius: 10.0,
-            ),
+                color: Colors.grey[400],
+                offset: Offset(5.0, 5.0),
+                blurRadius: 15.0,
+                spreadRadius: 1.0),
+            BoxShadow(
+                color: Colors.grey[100],
+                offset: Offset(5.0, 5.0),
+                blurRadius: 15.0,
+                spreadRadius: 1.0),
           ],
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.white54,
+                Colors.white38,
+                Colors.white38,
+                Colors.white54,
+                // Colors.grey[100],
+                // Colors.grey[200],
+                // Colors.grey[300],
+                // Colors.grey[400],
+              ],
+              stops: [
+                0.1,
+                0.3,
+                0.7,
+                0.9,
+              ]),
         ),
       ),
     );

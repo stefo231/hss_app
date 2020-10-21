@@ -20,12 +20,34 @@ class CircleButton extends StatelessWidget {
           color: Colors.white,
           // color: Color(0xFFDFE6EE),
           borderRadius: BorderRadius.circular(100),
+
           boxShadow: [
             BoxShadow(
-              color: Colors.grey[400],
-              blurRadius: 10.0,
-            ),
+                color: Colors.blue[100],
+                offset: Offset(5.0, 5.0),
+                blurRadius: 15.0,
+                spreadRadius: 1.0),
+            BoxShadow(
+                color: Colors.grey[100],
+                offset: Offset(5.0, 5.0),
+                blurRadius: 15.0,
+                spreadRadius: 1.0),
           ],
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.white54,
+                Colors.white38,
+                Colors.white38,
+                Colors.white54,
+              ],
+              stops: [
+                0.1,
+                0.3,
+                0.7,
+                0.9,
+              ]),
         ),
       ),
     );
