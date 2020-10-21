@@ -49,7 +49,22 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                     ),
                     CustomIconButton(
-                        onTap: () {},
+                        onTap: () {
+                          showModalBottomSheet(
+                            context: context,
+                            isScrollControlled: true,
+                            builder: (context) => SingleChildScrollView(
+                              child: Container(
+                                // color: Colors.red,
+                                padding: EdgeInsets.only(
+                                    bottom: MediaQuery.of(context)
+                                        .viewInsets
+                                        .bottom),
+                                child: LoginPanel(),
+                              ),
+                            ),
+                          );
+                        },
                         logo: Image.asset(
                           'images/profile.png',
                           width: 35,
@@ -77,22 +92,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               ),
                             ),
                           ),
-                          onTap: () {
-                            showModalBottomSheet(
-                              context: context,
-                              isScrollControlled: true,
-                              builder: (context) => SingleChildScrollView(
-                                child: Container(
-                                  // color: Colors.red,
-                                  padding: EdgeInsets.only(
-                                      bottom: MediaQuery.of(context)
-                                          .viewInsets
-                                          .bottom),
-                                  child: LoginPanel(),
-                                ),
-                              ),
-                            );
-                          },
+                          onTap: () {},
                         )
                       ],
                     ),

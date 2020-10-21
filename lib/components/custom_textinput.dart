@@ -10,35 +10,74 @@ class CustomTextInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(20.0),
-      child: TextField(
-        onChanged: (value) {},
-        obscureText: obscureText ?? false,
-        autocorrect: false, //smth is wrong
-        enableSuggestions: false, //smth is wrong
-        style: TextStyle(
-          color: Colors.black,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [
+            BoxShadow(
+                color: Colors.grey[400],
+                offset: Offset(-4.0, -4.0),
+                blurRadius: 15.0,
+                spreadRadius: 1.0),
+            BoxShadow(
+                color: Colors.white,
+                offset: Offset(-4.0, -4.0),
+                blurRadius: 15.0,
+                spreadRadius: 1.0),
+            BoxShadow(
+                color: Colors.grey[100],
+                offset: Offset(-4.0, -4.0),
+                blurRadius: 15.0,
+                spreadRadius: 1.0),
+          ],
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.white54,
+              Colors.white38,
+              Colors.white38,
+              Colors.white54,
+            ],
+            stops: [
+              0.1,
+              0.3,
+              0.7,
+              0.9,
+            ],
+          ),
         ),
-        decoration: InputDecoration(
+        child: TextField(
+          onChanged: (value) {},
+          obscureText: obscureText ?? false,
+          autocorrect: false, //smth is wrong
+          enableSuggestions: false, //smth is wrong
+          style: TextStyle(
+            color: Colors.black,
+          ),
+          decoration: InputDecoration(
             hintText: hintText,
             hintStyle: TextStyle(color: Colors.grey),
 
             //enabled: true, //?to enable or disable TextInput
 
             //below this line is background styling
-            filled: true,
-            fillColor:
-                Colors.white, //!something extra needs to be done, I need help
+            // filled: true,
+            // fillColor:
+            //     Colors.white, //!something extra needs to be done, I need help
 
             //below this line is border styling
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
             focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.blue),
+                borderSide: BorderSide.none,
+                // BorderSide(color: Colors.blue),
                 borderRadius: BorderRadius.circular(10.0)),
             enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.blueAccent,
-                ),
+                borderSide: BorderSide.none,
+                // BorderSide(
+                //   color: Colors.grey[300],
+                // ),
                 borderRadius: BorderRadius.circular(10.0)),
             disabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
@@ -53,7 +92,9 @@ class CustomTextInput extends StatelessWidget {
             errorText:
                 null, //use this instead of null if needed --> "Ooops, something is not right!",
             errorStyle:
-                TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
+                TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+          ),
+        ),
       ),
     );
   }
