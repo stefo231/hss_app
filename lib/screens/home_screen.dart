@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hss_app/components/circle_button.dart';
 import 'package:hss_app/components/large_circle_button.dart';
 import 'package:hss_app/components/custom_button_two.dart';
-import 'package:hss_app/components/custom_icon_button.dart';
+// import 'package:hss_app/components/custom_icon_button.dart';
 //slider
 import 'package:slider_button/slider_button.dart';
 import 'package:hss_app/components/custom_dialog.dart';
-import 'package:slider_button/slider_button.dart';
 
 class HomeScreen extends StatefulWidget {
   static String id = "home_screen";
@@ -142,6 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: CustomDialog(
                             // title: 'Here goes title',
                             background: AssetImage('images/sos_screen_1.jpg'),
+
                             image: Image.asset('images/sos_red_circle.png',
                                 height: 150),
                             content: "Emergency Call for",
@@ -185,35 +185,96 @@ class _HomeScreenState extends State<HomeScreen> {
                                 }),
                             //? the code above is to show second Dialog window
                             //Todo------------u need to style the DropdownButton -----------------
-                            selector: Container(
-                              child: DropdownButton(
-                                value: dropdownValue,
-                                onChanged: (String newValue) {
-                                  setState(() {
-                                    dropdownValue = newValue;
-                                  });
-                                },
-                                style: TextStyle(color: Colors.red),
-                                selectedItemBuilder: (BuildContext context) {
-                                  return options.map((String value) {
-                                    return Text(
-                                      dropdownValue,
-                                      style: TextStyle(color: Colors.red),
-                                    );
-                                  }).toList();
-                                },
-                                items: options.map<DropdownMenuItem<String>>(
-                                    (String value) {
-                                  return DropdownMenuItem(
-                                    value: value,
-                                    child: Text(value),
-                                  );
-                                }).toList(),
+                            selector: Padding(
+                              padding: const EdgeInsets.only(
+                                  right: 20.0, left: 20.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  // color: Colors.grey[100],
+                                  color: Colors.white,
+                                  // color: Color(0xFFDFE6EE),
+                                  borderRadius: BorderRadius.circular(100),
+
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Colors.blue[100],
+                                        offset: Offset(5.0, 5.0),
+                                        blurRadius: 15.0,
+                                        spreadRadius: 1.0),
+                                    BoxShadow(
+                                        color: Colors.grey[100],
+                                        offset: Offset(5.0, 5.0),
+                                        blurRadius: 15.0,
+                                        spreadRadius: 1.0),
+                                  ],
+                                  gradient: LinearGradient(
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                      colors: [
+                                        Colors.white54,
+                                        Colors.white38,
+                                        Colors.white38,
+                                        Colors.white54,
+                                      ],
+                                      stops: [
+                                        0.1,
+                                        0.3,
+                                        0.7,
+                                        0.9,
+                                      ]),
+                                ),
+                                //Todo --------------dropdown---
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.add,
+                                      size: 40,
+                                      color: Colors.red,
+                                    ),
+                                    DropdownButton(
+                                      value: dropdownValue,
+                                      onChanged: (String newValue) {
+                                        setState(() {
+                                          dropdownValue = newValue;
+                                        });
+                                      },
+                                      style: TextStyle(
+                                          color: Colors.red,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold),
+                                      selectedItemBuilder:
+                                          (BuildContext context) {
+                                        return options.map((String value) {
+                                          return Text(
+                                            dropdownValue,
+                                            style: TextStyle(color: Colors.red),
+                                          );
+                                        }).toList();
+                                      },
+                                      items: options
+                                          .map<DropdownMenuItem<String>>(
+                                              (String value) {
+                                        return DropdownMenuItem(
+                                          value: value,
+                                          child: Text(value),
+                                        );
+                                      }).toList(),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                             //Todo---------------------------------------------------------------
                             sliderBtn: SliderButton(
-                              baseColor: Colors.grey,
+                              baseColor: Colors.red,
+                              buttonColor: Colors.blue[50],
+                              backgroundColor: Colors.red[50],
+                              boxShadow: BoxShadow(
+                                  color: Colors.blue[50],
+                                  offset: Offset(5.0, 5.0),
+                                  blurRadius: 15.0,
+                                  spreadRadius: 1.0),
                               shimmer: false,
                               height: 50,
                               buttonSize: 50,
