@@ -15,20 +15,20 @@ class CustomTextInput extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
           boxShadow: [
             BoxShadow(
-                color: Colors.grey[400],
-                offset: Offset(-4.0, -4.0),
-                blurRadius: 15.0,
-                spreadRadius: 1.0),
+              color: Colors.grey[400],
+              blurRadius: 10.0,
+              spreadRadius: 1.0,
+            ),
             BoxShadow(
-                color: Colors.white,
-                offset: Offset(-4.0, -4.0),
-                blurRadius: 15.0,
-                spreadRadius: 1.0),
-            BoxShadow(
-                color: Colors.grey[100],
-                offset: Offset(-4.0, -4.0),
-                blurRadius: 15.0,
-                spreadRadius: 1.0),
+              color: Colors.white,
+              blurRadius: 10.0,
+              spreadRadius: 1.0,
+            ),
+            // BoxShadow(
+            //   color: Colors.grey[100],
+            //   blurRadius: 10.0,
+            //   spreadRadius: 1.0,
+            // ),
           ],
           gradient: LinearGradient(
             begin: Alignment.topCenter,
