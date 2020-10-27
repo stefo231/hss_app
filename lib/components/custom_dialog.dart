@@ -76,7 +76,7 @@ class CustomDialog extends StatelessWidget {
                 style: TextStyle(
                     fontWeight: FontWeight.w900,
                     color: Colors.red,
-                    fontSize: 36),
+                    fontSize: 32),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 16),

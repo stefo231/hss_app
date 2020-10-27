@@ -14,8 +14,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<String> options = ['John Doe', 'Catherine Doe', 'Emilia Doe', 'Ben Doe'];
-  String dropdownValue = 'John Doe'; // for drowdown
+  List<String> options = <String>[
+    'John Doe',
+    'Catherine Doe',
+    'Emilia Doe',
+    'Ben Doe'
+  ];
+  String dropdownValue; // for drowdown
 
   @override
   Widget build(BuildContext context) {
@@ -188,6 +193,9 @@ class _HomeScreenState extends State<HomeScreen> {
           selector: Padding(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0),
             child: Container(
+              alignment: Alignment.center,
+              height: 40.0,
+              width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(100),
@@ -220,48 +228,81 @@ class _HomeScreenState extends State<HomeScreen> {
                     ]),
               ),
               //Todo --------------dropdown---
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.add,
-                    size: 40,
-                    color: Colors.red,
-                  ),
-                  DropdownButtonHideUnderline(
-                    child: DropdownButton(
+              child: DropdownButtonHideUnderline(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    dropdownValue == null
+                        ? Icon(
+                            Icons.add,
+                            size: 30,
+                            color: Colors.red,
+                          )
+                        : Icon(
+                            Icons.check,
+                            size: 30,
+                            color: Colors.red,
+                          ),
+                    DropdownButton<String>(
                       value: dropdownValue,
                       isDense: true,
                       iconSize: 0,
-                      // hint: Text('null'),
-                      onChanged: (String newValue) {
+                      hint: dropdownValue != null
+                          ? null
+                          : Text(
+                              'Select Human',
+                              style: TextStyle(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                      onChanged: (String value) {
                         setState(() {
-                          dropdownValue = newValue;
+                          dropdownValue = value;
                         });
                       },
                       style: TextStyle(
                           color: Colors.red,
                           fontSize: 18,
                           fontWeight: FontWeight.bold),
-                      selectedItemBuilder: (BuildContext context) {
-                        return options.map((String value) {
-                          return Text(
-                            dropdownValue,
-                            style: TextStyle(color: Colors.red),
-                          );
-                        }).toList();
-                      },
+                      selectedItemBuilder: dropdownValue == null
+                          ? null
+                          : (BuildContext context) {
+                              return options.map((String value) {
+                                return Text(
+                                  dropdownValue,
+                                  style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold),
+                                );
+                              }).toList();
+                            },
                       items:
                           options.map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem(
+                        return DropdownMenuItem<String>(
                           value: value,
-                          child: Text(value),
+                          child: Row(
+                            children: [
+                              Text(
+                                value,
+                                style: TextStyle(
+                                    inherit: false, color: Colors.black),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                '(User)',
+                                style: TextStyle(
+                                    inherit: false, color: Colors.grey),
+                              ),
+                            ],
+                          ),
                         );
                       }).toList(),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
