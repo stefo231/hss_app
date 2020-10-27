@@ -13,7 +13,6 @@ class CustomDialog extends StatelessWidget {
     this.onBtnTap,
     this.sliderBtn,
     this.selector,
-    this.background,
   });
 
   final String title, content, positiveBtnText, negativeBtnText;
@@ -23,7 +22,6 @@ class CustomDialog extends StatelessWidget {
   final Widget sliderBtn;
   final Widget selector;
   final Image image;
-  final AssetImage background;
 
   @override
   Widget build(BuildContext context) {
@@ -42,16 +40,11 @@ class CustomDialog extends StatelessWidget {
         Container(
           margin: EdgeInsets.only(top: 40),
           decoration: BoxDecoration(
-            image: DecorationImage(
-              image: background,
-              fit: BoxFit.cover,
-            ),
             color: Colors.white,
             borderRadius: BorderRadius.circular(12),
           ),
           padding: EdgeInsets.only(top: 60, left: 20, right: 20),
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.min,
             children: [
               Container(
@@ -98,7 +91,6 @@ class CustomDialog extends StatelessWidget {
                     onTap: () => {
                       Navigator.of(context).pop(),
                       Navigator.of(context).pop()
-                      //print('object')
                     },
                   ),
 
