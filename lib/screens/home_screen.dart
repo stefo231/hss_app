@@ -234,7 +234,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       value: dropdownValue,
                       isDense: true,
                       iconSize: 0,
-                      hint: Text('null'),
+                      // hint: Text('null'),
                       onChanged: (String newValue) {
                         setState(() {
                           dropdownValue = newValue;
